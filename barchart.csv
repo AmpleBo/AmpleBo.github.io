@@ -1,0 +1,22 @@
+country,year,percent
+All individuals with .a household member abroad,life evaluation,0.18
+All individuals with .a household member abroad,positive affect,0.2
+All individuals with .a household member abroad,negative affect,0.1
+"Individuals with a household member 
+.abroad for temporary work",life evaluation,0.15
+"Individuals with a household member 
+.abroad for temporary work",positive affect,0.02
+"Individuals with a household member 
+.abroad for temporary work",negative affect,0.18
+"Individuals receiving remittances 
+.from relatives abroad",life evaluation,0.21
+"Individuals receiving remittances 
+.from relatives abroad",positive affect,0.35
+"Individuals receiving remittances 
+.from relatives abroad",negative affect,0.01
+"Individuals with a household member 
+.living permanently abroad",life evaluation,0.19
+"Individuals with a household member 
+.living permanently abroad",positive affect,0.11
+"Individuals with a household member 
+.living permanently abroad",negative affect,0.04

@@ -1,0 +1,5 @@
+kind,positiveaffect,negativeaffect,lifeevaluation
+All individuals with .a household member abroad,0.2,0.1,0.18
+Individuals with a household member .abroad for temporary work,0.02,0.18,0.15
+Individuals receiving remittances .from relatives abroad,0.35,0.02,0.21
+Individuals with a household member .living permanently abroad,0.11,0.04,0.19
