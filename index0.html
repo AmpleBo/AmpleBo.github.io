@@ -11,7 +11,7 @@
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-	<script src="http://d3js.org/d3.v3.js"></script>
+	
 
 
 	<meta name="description" content="Scrollama Demo: Fixed CSS">
@@ -193,15 +193,9 @@
 		}
 
 		.step p {
-			text-align: left;
+			text-align: center;
 			padding: 2rem;
-			font-size:1.2rem;
-			line-height:2rem;
-			padding-bottom: 1.3em; 
-			font-family:"Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
-			font-weight:normal;
-			color:#767676;
-			margin:0
+			font-size: 1.5rem;
 		}
 			path {
 				stroke: #FFFFFF;
@@ -308,7 +302,6 @@ left: 50%; bottom: 40%; transform: translateX(-50%);
 <div class="ui dividing header">
 <p></p>
 	<h>Chasing After Happiness</h>
-		<hr style="height:1px;border:none;border-top:3px solid gray;margin-top: 10px;" />
   <div class="ui container vertical segment">
 		<p><span class="drop-cap">I</span>n 2015, The 38-year-old Chinese Mr. Hao, went to the United States alone with great ambition. "Better than China at least." Seeing no future of his mom-and-pop store, he decided to go abroa and make a breakthrough.</p>
 	  <p>Mr. Hao represents a microcosm of the huge immigration. According to the IOM World Immigration Report, the number of international migrants has increased dramatically in the past 45 years.</p>
@@ -331,19 +324,19 @@ left: 50%; bottom: 40%; transform: translateX(-50%);
 	<div class="ui grid">
 	<div class="one wide column"> </div>
 	<div class="fourteen wide column">
-		<div id="iembed" style="position: relative;width:100%;height:0; padding-bottom:40%;overflow-y:hidden;">
-		<iframe id="iembedframe" src="http://metrocosm.com/world-migration.html" width=1000 height=700 scrolling="no" style="position:absolute;right:5%;top:0;transform-origin:top right;overflow-y:hidden;"></iframe>
+		<div id="iembed" style="position: relative;width:100%;height:0;padding-bottom:40%;overflow-y:hidden;">
+		<iframe id="iembedframe" src="http://metrocosm.com/world-migration.html" width=1200 height=700 scrolling="no" style="position:absolute;text-align: center left:0;top:0;transform-origin:top left;overflow-y:hidden;"></iframe>
 		</div>
 	</div>
 	<div class="one wide column"> </div>
 	</div>
 	<script src="http://metrocosm.com/metrocosm-migration-embed.js"></script>
 	<section id="intro">
-		<p style="padding-top: 20px">The golden dots move busily, mimicing immigrants all around the world come and go. In 2015, 700 million people expressed their intention to emigrate. The actual number of people living outside the country of birth is about 244 million, 100 million more than what it was in 1990. In 2050, it is expected the figure to keep growing to 400 million.
+		<p>The golden dots move busily, mimicing immigrants all around the world come and go. In 2015, 700 million people expressed their intention to emigrate. The actual number of people living outside the country of birth is about 244 million, 100 million more than what it was in 1990. In 2050, it is expected the figure to keep growing to 400 million.
 				</p>
 				<p>After all, why do people choose to emigrate?</p><p> Are immigrants and his families really happier?</p>
 </section>
-		
+
 	<section id="scroll">
 		<div class="scroll__graphic" >
 
@@ -352,10 +345,9 @@ left: 50%; bottom: 40%; transform: translateX(-50%);
 			</div>
 		</div>
 		<div class="scroll__text">
-			<div class="step is-active" data-step="1" data-scrollama-index="0" style="margin-top: 40px;">
-				<h style="margin-bottom: 20px">Most popular but not happiest</h>
-				<hr style="height:1px;border:none;border-top:3px solid gray;margin-top: 10px;" />
-				<p style="margin-top: 80px;">
+			<div class="step is-active" data-step="1" data-scrollama-index="0">
+				<h1>Most popular but not happiest</h1>
+				<p>
 				This map shows the influx of immigrants from all over the world. The deeper the color, the larger the influxes. Obviously, it is the United States the color of which looks deepest. The U.S. has been the main destination of international migration since 1970. And the number of foreign-born people living in the United States has been almost quadrupled since then.
 				</p>
 						</div>
@@ -373,20 +365,20 @@ left: 50%; bottom: 40%; transform: translateX(-50%);
 						<p>After receiving Bachelor's degree in Singapore, Qiu chose to apply for a graduate school in the U.S. After graduation, he stayed in Atlanta as an engineer working at a technology company. "The answer is simple——the United States is the most powerful country in the world." For nearly 20 years abroad, he explained the reason why he chose his destination with his no-longer-fluent mother tongue.</p>
 						<p>Similar with Qiu, two-thirds of immigrants choose developed areas as their destinations. Although those may not necessarily be the happiest countries, they do offer opportunities for immigrants to better their lives. It is the wish for a better life that  is the first reason why they emigrate.</p>
 
-<h>Do They Really happier than before?</h>
 
 
 
-	
-							<hr style="height:1px;border:none;border-top:3px solid gray;margin-top: 10px;" />
-					<p></p>
-						<p><span class="drop-cap">I</span>n the radar chart below, blue represents the immigrants, and red represents the natives. Although the physical conditions for immigrants, such as GDP per capita, government trust, are not as good as those of natives, the subjective well-being index of immigrants is twice as many as that of the natives.
+						<h1>Do They Really happier than before?</h1>
+	</section>
+					<img class="ui fluid image" src="images/worldhappy.png">
+<section id=outro>
+					<p><span class="drop-cap">I</span>n the radar chart below, blue represents the immigrants, and red represents the natives. Although the physical conditions for immigrants, such as GDP per capita, government trust, are not as good as those of natives, the subjective well-being index of immigrants is twice as many as that of the natives.
 					</p>
-					<p style="font-weight: bold;">At least, they feel happier.</p>
+					<p>At least, they feel happier.</p>
 		</section>			
-							<div class="radarChart" style="height:800px; width:699px; margin:0px auto;"></div>
-
-							<script src="d3.v3.js"></script>
+							<div class="radarChart" style="height:800px; width:699px; margin:10px auto;"></div>
+					
+					<script src="d3.v3.js"></script>
 						<script src="radar.js"></script>
 						<script>
 
@@ -432,29 +424,23 @@ left: 50%; bottom: 40%; transform: translateX(-50%);
 						</script>
  	<section id=outro>
 						
-				<p>In his first year in the United States, Mr. Hao almost gained twenty pounds. 
+					
+				<p>In U.S., meat is less expensive, while vegetables and fruits are more expensive, compared with China.
 				</p>	
-				<p>"A fat is always poor." He jokes.In U.S., meat is pretty cheap, while vegetables and fruits are more expensive, compared with China. Without the Permanent Resident Card, he only got a low-wage job at a restaurant in the Chinese community. Mr. Hao budgeted carefully, managing to support his wife and daughter who stayed in China. Exchanging USD to RMB, the money seems to be handsome. "Everything is fine as long as I am healthy." He saied.
+				<p>In his first year in the United States, Mr. Hao almost gained twenty pounds. "A fat is always poor." He jokes. Without the Permanent Resident Card, he got a low-wage job at a restaurant in the Chinese community. He budgeted carefully, managing to support his wife and daughter who stayed in China. Exchanging USD to RMB, the money seems to be handsome. "Everything is fine as long as I am healthy." He saied.
 				</p>
-		<div class="ui segment">
-				<img class="ui fluid image" src="小郝.jpg">
-				<p style="font-size: 15px; text-align: right; color:#646464">Mr. Hao has put on some pounds in the U.S.</p>
-			</div>
 				<p>Days seem not as bright as he had imagined before leaving China, but Mr. Hao has no regrets for his decision. 
 				</p>
 <p>"Once there was a Chinese old lady who practice Tai Chi every morning at a park. It is common in China while many foreigners are so interested in Chinese Kungfu! Many foreigners practiced with her and everyone paid her some money. In this way, the old lady bought a big house finally.” He told a story. Mr. Hao plays Tai Chi very well and won several amateur championships. He paused for a while, "It is better than China in my opinion."
 </p>				
 
 
-							<img style="margin-bottom: 60px;" class="ui fluid image" src="images/移民之路.jpg"></img>
-					<h >Gain happiness in first 5 years</h>
-		<hr style="height:1px;border:none;border-top:3px solid gray;margin-top: 10px;" />
-									<p style="margin-top:20px;"><span class="drop-cap">Q</span>iu is quite satisfied with his life in US. Qiu’ salary was much higher than he could be paid in China, though not as high as the average level of the US, when he came to America at the first 5 years. Not accustomed to Western food, Qiu cook his meals when graduate schoold, which in turn improved cooking skills a lot. Qiu expresses firmly he has never thought of giving up even sometimes lonely, "Since you choose to go abroad, you should prepare for loneliness well."
+							<img class="ui fluid image" src="images/IMMIGRANTS-facebook.jpg">
+					<h1>Gain happiness in first 5 years</h1>
+									<p>Qiu is quite satisfied with his life in US. Qiu’ salary was much higher than he could be paid in China, though not as high as the average level of the US, when he came to America at the first 5 years. Not accustomed to Western food, Qiu cook his meals when graduate schoold, which in turn improved cooking skills a lot. Qiu expresses firmly he has never thought of giving up even sometimes lonely, "Since you choose to go abroad, you should prepare for loneliness well."
 									</p>
 									<p>Qiu told us he fitted in the local life and got the Permanent Resident Card in a very short time. Because of his outstanding ability, he quickly became the general manager of the company. Then, it seemed that there was no chance of promotion. "As you all know, it is almost unlikely for a Chinese to get a higher position." He explained, "Because you are Asian and it is unavoidable they will judge you by race."
 									</p>
-					<p style="font-weight: bold;">This bar chart below compares these three index of newcomers(migration under 5 years) and long-timers.</p>
-					<p>Positive affect means the frequency of happy events people exeriences in daily life and negative affect is the opposite.Life evaluation is people's mental judgment of their current life condition.</p>
 
 												
 		
@@ -471,35 +457,28 @@ left: 50%; bottom: 40%; transform: translateX(-50%);
 		<!-- Create a div where the graph will take place -->
 		<div id="my_dataviz" style="height:500px"></div>
 
-		<p>Indeed, migration gives people more positive affect and life expectation. As time goes by, some of them get the green cards or get adapted their life abroad, leading to a small increase of life evaluation. But just like Qiu, immigrants already achieve happiness gains during their first five years after migration. This finding suggests that the happiness of immigrants does not improve much with their length of stay in the destination country, which is in line with previous research findings.
+		<p>Immigrants already achieve happiness gains during their first five years after migration. This finding suggests that the happiness of immigrants does not improve much with their length of stay in the destination country, which is in line with previous research findings.
 		</p>
 		</div>
-		<div class="ui segment">
-				<img class="ui fluid image" src="images/02.jpg">
-				<p style="font-size: 15px; text-align: right; color:#646464">New York, shot by Mr. Hao</p>
-			</div>
+		<img class="ui fluid image" src="images/02.jpg">
 		<div class="ui container vertical segment">
-			<h>Better life for family </h>
-				<hr style="height:1px;border:none;border-top:3px solid gray;margin-top: 10px;" />
-			<p></p>
-			<p><span class="drop-cap">W</span>hen Mr. Hao went abroad, his daughter, Rachel, was a middle school student. She didn't know what his father’s job in America. 
+			<h1>Better life for family </h1>
+			<p>When Mr. Hao went abroad, his daughter, Rachel, was a middle school student. She didn't know what his father’s job in America. 
 				</p>
-			<p>"I thought it should have been great to go to the United States at that time." She was proud of her father. Mr. Hao’s wife and daughter got a better life because he made more money in America. Rachel is holding a luxury handbag. She shows a lot of pictures of nice food and clothes and selfie with very delicate makeup on social apps.
+			<p>"I thought it would be great to go to the United States at that time." She was proud of her father. Mr. Hao’s wife and daughter got a better life because he made more money in America. Rachel is holding a luxury handbag. She shows a lot of pictures of nice food and clothes and selfie with very delicate makeup on social apps.
 				</p>
 			<p>When Mr. Hao was in China, he made fried dishes for Rachel every morning. Now Dad's delicious breakfast was supplanted by the bread bought from cafe. The tradition of watching movies on weekends is replaced by going to the church.
 			</p>
 			<p>"If we go to America too, I'm afraid Rachel will be discriminated at school if not religious." So mother made this decision to go to the church.
 			</p>
-			<p>Hoping to smooth Rachel’s loneliness, Rachel’s mother add a new family, a little dog, which Rachel had wanted since childhood.
+			<p>Hoping to smooth Rachel’s loneliness, Rachel’s mother add a new family, a Golden Retriever, which Rachel had wanted since childhood.
 			</p>
 			<p>However, pets never can be more than pets.</p>
-			<img class="ui fluid image" src="images/守望.jpg"> 
+			<img class="ui fluid image" src="images/dog.jpg"> 
 			<div class="ui container vertical">	
 			<p> </p>			
 			<p>Qiu's marriage and childbirth in the United States saved much trouble Mr. Hao has met. Qiu often sends money his parents who lives in China. "It is similar with rural-to-urban migration in China." He explained. Nowadays, Qiu’s parents miss him from time to time, asking him to come back to China more often, though they support Qiu’s decision to go to America.
 				</p>
-				<p style="font-weight: bold;">This chart measures life evaluation, positive affect and negative affect of immigration's family.
-					<p>Different color represent different families in conditions.And the radius represent their life evaluation.</p>
 				</div>
 				<div class="ui segment">
 				<img class="ui fluid image" src="images/Qiu_Climbing.jpg">
@@ -507,7 +486,8 @@ left: 50%; bottom: 40%; transform: translateX(-50%);
 			</div>
 <p></p>
 
-			
+				<p>The results suggest that migration generally improves the perceived quality of life of household members back home but not necessarily their emotional well-being. Particularly interesting is that having a household member abroad generally does not reduce—and often even increases—negative affect experiences among the family back home. Hence, migration often requires trade-offs between different aspects of happiness for people staying behind.
+				</p>
 </section>
 <div class="ui container">
 <div id="scatterplot" style="width:700px; height:600px; margin:10px auto;"></div>
@@ -516,13 +496,12 @@ left: 50%; bottom: 40%; transform: translateX(-50%);
 <script src="d3.v4.js"></script>
 <script src="scatter2.js"></script>
 <section id="outro">
-		<p>The results suggest that immigration generally improves the perceived quality of life of household members back home but not necessarily their emotional well-being. Particularly interesting is that having a household member abroad generally does not reduce—and often even increases—negative affect experiences among the family back home. Hence, migration often requires trade-offs between different aspects of happiness for people staying behind.
-				</p>
 	
-	<p style="margin-top: 20px;"><span class="drop-cap">N</span>ow, Qiu's new-established company is developing gradually. He keeps in touch with friends in China and plans to return to China in two years. Qiu does not join the nationality of the USA. "I want to go back."
+
+	<p>Qiu's new-established company is developing gradually. He keeps in touch with friends in China and plans to return to China in two years. Qiu does not join the nationality of the USA. "I want to go back."
 	</p>
 	<p>Mr. Hao, on the other hand, is planning to take his wife and daughter to America. Now it is time for her daughter apply for a college, he wants Rachel to apply a college in US. He is preparing for a happy reunion year in the United States.</p>
-	<p>Immigrants, who have sufferings and tiredness, but also have happiness and hope, think twice when you make your decision. And don't regret.</p>
+	<p></p>
 	
 </section>
 		<section id="jieweibakuaijiewei!!!!">
