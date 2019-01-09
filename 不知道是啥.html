@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>Happiness Index of Immigrants</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	
+
+
+	<meta name="description" content="Scrollama Demo: Fixed CSS">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" type="text/css" href="css/semantic.css">
+	<link rel="stylesheet" href="startstyle.css"/>
+	<style>
+		/* default / demo page */
+
+		* {
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+				}
+
+		body {
+			min-height: 1280px;
+			font-weight: 300;
+			color: #2a2a2a;
+		}
+		h {font-size: 30px;
+			margin-top:20px;
+			padding-bottom:2rem;
+}
+		p{font-size:1.2rem;line-height:2rem;padding-bottom: 1.3em; font-family:"Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;font-weight:normal;color:#767676;margin:0}
+		
+		 .drop-cap{
+			font-size: 5.75rem;
+			line-height: 4.5rem;
+			float: left;
+			color: #2BB1CA;
+}
+
+		
+		a {
+			margin: 5;
+			font-weight: 300;
+			font-size:20px;
+		}
+
+		a,
+		a:visited,
+		a:hover {
+			color: #f30;
+			text-decoration: none;
+			border-bottom: 1px solid currentColor;
+		}
+
+		.loading_text{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%,-50%,0);
+            font-family : "microsoft yahei light";
+            text-align: center;
+            font-size: 48px;
+            z-index: 100;
+            text-shadow: 0 0 10px rgba(64,160,255,0.75);
+			color:white;
+        }
+        strong{
+            font-family : "microsoft yahei";
+        }
+        #loading_box{
+            top : 0;
+            width : 100%;
+            height : 180px;
+        }
+		#intro {
+			max-width: 50rem;
+			margin: 1rem auto;
+
+		}
+
+		.intro__overline {
+			font-size: 1.4rem;
+		}
+
+		.intro__hed {
+			font-size: 1.4rem;
+			margin: 1.5rem auto;
+			text-transform: uppercase;
+			font-weight: 900;
+			letter-spacing: 0.05em;
+		}
+
+		.intro__dek {
+			font-size: 1.4rem;
+		}
+
+		/* demo */
+
+		#intro {
+			margin-bottom: 10px;
+		}
+		#yellowball {
+			position:relative;
+			margin-bottom: 320px;
+
+	}
+		#outro {
+
+			max-width: 50rem;
+			margin: 1rem auto;
+
+		}
+
+		/* scrollama */
+
+		#scroll {
+			position: relative;
+			border-top: 0;
+			border-bottom: 0;
+		}
+
+		.scroll__graphic {
+			position: absolute;
+			top: 0;
+			left: auto;
+			bottom: auto;
+			background-color: #fff;
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+
+		}
+
+		.scroll__graphic.is-fixed {
+			position: fixed;
+		}
+
+		.scroll__graphic.is-bottom {
+			bottom: 0;
+			top: auto;
+		}
+
+		.chart {
+			position: absolute;
+			left:4rem;
+			right: 7rem;
+			top: 40%;
+			-moz-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
+			transform: translateY(-50%);
+			border:0;
+			width: 100%;
+			margin: 0;
+			height: 50vh;
+		}
+
+		.chart .img2 {
+			opacity: 0;
+		}
+		.chart .img3{opacity: 1;}
+
+
+		.scroll__text {
+			position: relative;
+			padding: 0 4rem;
+			max-width: 70rem;
+			width: 60%;
+			margin: 0 auto;
+		}
+
+		.step {
+			margin: 10rem auto;
+			border: 0;
+			height: 100vh;
+		 	margin-bottom: 1rem
+		}
+
+		.step.is-active p{
+			background-color: rgba(209,209,209,0.3);
+
+		}
+
+		.step p {
+			text-align: center;
+			padding: 2rem;
+			font-size: 1.5rem;
+		}
+			path {
+				stroke: #FFFFFF;
+				stroke-width: .5px;
+
+			}
+
+			.legendLinear text {
+			    font-size: 9px;
+			}
+
+			.tooltip {
+				fill: #333333;
+
+}
+
+            .tooltip p {
+                background-color: white;
+                color: black;
+                border: grey 1px solid;
+                padding: 2px;
+                text-align: left;
+                font-size:18px;
+            }
+
+
+
+		    .source{
+		    	font-size:15px;
+		    }
+				svg {
+				position:absolute;
+				}
+				canvas {
+				position:absolute;
+				pointer-events:none;
+				}
+				#container {
+							background: transparent;
+							width: 1200px;
+							height: 700px;
+						}
+
+			#map { position:absolute; width:1200px; height: 700px;}
+
+			.mapboxgl-interactive {height:700px;}
+
+
+			.legend {
+				font-family: 'Raleway', sans-serif;
+				fill: #333333;
+			}
+		#maintitle{
+			width: 100%;
+	        height: 720px;
+		position: relative;}
+.donghua
+{
+animation: dongqilai 12s;
+-moz-animation: dongqilai 12s;	/* Firefox */
+-webkit-animation: dongqilai 12s;	/* Safari 和 Chrome */
+-o-animation: dongqilai 12s;	/* Opera */
+position:absolute;
+left: 50%; bottom: 40%; transform: translateX(-50%);
+}
+		@keyframes dongqilai{
+			from{opacity: 0;}
+			to{opacity: 1;}
+		}
+		@-moz-keyframes dongqilai{
+			from{opacity: 0;}
+			to{opacity: 1;}
+		}
+		@-webkit-keyframes dongqilai{
+			from{opacity: 0;}
+			to{opacity: 1;}
+		}
+		@-o-keyframes dongqilai{
+			from{opacity: 0;}
+			to{opacity: 1;}
+		}
+	</style>
+
+</head>
+
+<body>
+<section id="beginning">
+	
+<div id="maintitle" class="picturesfortitle" style="overflow: hidden; width: 100%; height: 650px; background-image: url(首图.png); background-size: auto;">
+	 <div id="videofortitle">
+	  <video src="车流延时_1.mp4" width="100%" heigt="100%" autoplay="autoplay" loop="loop" poster="首图.png">
+	  </video>
+	 </div>
+	<div class="gradient" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; pointer-events: none;"></div>
+	 <div id="maintitletext" class="donghua" >
+		 <p style="color:white;font-size:4em;padding-bottom: 1em;">Immigrate for Happiness</p>
+	 </div>
+	</div>
+</section>
+
+	<section id="intro">
+		
+		<div class="ui container">
+<div class="ui dividing header">
+<p></p>
+	<h>Chasing After Happiness</h>
+  <div class="ui container vertical segment">
+		<p><span class="drop-cap">I</span>n 2015, The 38-year-old Chinese Mr. Hao, went to the United States alone with great ambition. "Better than China at least." Seeing no future of his mom-and-pop store, he decided to go abroa and make a breakthrough.</p>
+	  <p>Mr. Hao represents a microcosm of the huge immigration. According to the IOM World Immigration Report, the number of international migrants has increased dramatically in the past 45 years.</p>
+  </div>
+</div>
+
+<div class"ui container vertical segment">
+	<p style="font-weight: bold;">This chart shows the migration flow around the world.</p>
+			<p>Blue means the net migration of the country is positive (more inflows) and red means negative (more outflows). One yellow dot represents 1,000 people.
+				</p>
+				<p>Hover and Click any circle you want (Tap the circle twice if using mobile) to see details of selected country.
+				</p>
+
+				
+
+		
+</div>
+
+	</section>
+	<div class="ui grid">
+	<div class="one wide column"> </div>
+	<div class="fourteen wide column">
+		<div id="iembed" style="position: relative;width:100%;height:0;padding-bottom:40%;overflow-y:hidden;">
+		<iframe id="iembedframe" src="http://metrocosm.com/world-migration.html" width=1200 height=700 scrolling="no" style="position:absolute;text-align: center left:0;top:0;transform-origin:top left;overflow-y:hidden;"></iframe>
+		</div>
+	</div>
+	<div class="one wide column"> </div>
+	</div>
+	<script src="http://metrocosm.com/metrocosm-migration-embed.js"></script>
+	<section id="intro">
+		<p>The golden dots move busily, mimicing immigrants all around the world come and go. In 2015, 700 million people expressed their intention to emigrate. The actual number of people living outside the country of birth is about 244 million, 100 million more than what it was in 1990. In 2050, it is expected the figure to keep growing to 400 million.
+				</p>
+				<p>After all, why do people choose to emigrate?</p><p> Are immigrants and his families really happier?</p>
+</section>
+
+	<section id="scroll">
+		<div class="scroll__graphic" >
+
+			<div class="chart" >
+
+			</div>
+		</div>
+		<div class="scroll__text">
+			<div class="step is-active" data-step="1" data-scrollama-index="0">
+				<h1>Most popular but not happiest</h1>
+				<p>
+				This map shows the influx of immigrants from all over the world. The deeper the color, the larger the influxes. Obviously, it is the United States the color of which looks deepest. The U.S. has been the main destination of international migration since 1970. And the number of foreign-born people living in the United States has been almost quadrupled since then.
+				</p>
+						</div>
+			<div class="step" data-step="2" data-scrollama-index="1">
+				<p>The size of the circle represents the happiness index of immigrants in this country. The top 10 happiest countries are marked by red. The countries with the largest influx of immigrants are not the happiest ones, for instance, the U.S., whose happiness index of immigrants only ranks 14th over the world.</p>
+			</div>
+
+		</div>
+	</section>
+
+	<section id="outro">
+		<div class="ui container">
+				<div class="ui dividing header">
+					<div class="ui container vertical segment">
+						<p>After receiving Bachelor's degree in Singapore, Qiu chose to apply for a graduate school in the U.S. After graduation, he stayed in Atlanta as an engineer working at a technology company. "The answer is simple——the United States is the most powerful country in the world." For nearly 20 years abroad, he explained the reason why he chose his destination with his no-longer-fluent mother tongue.</p>
+						<p>Similar with Qiu, two-thirds of immigrants choose developed areas as their destinations. Although those may not necessarily be the happiest countries, they do offer opportunities for immigrants to better their lives. It is the wish for a better life that  is the first reason why they emigrate.</p>
+
+
+
+
+						<h1>Do They Really happier than before?</h1>
+	</section>
+					<img class="ui fluid image" src="images/worldhappy.png">
+<section id=outro>
+					<p><span class="drop-cap">I</span>n the radar chart below, blue represents the immigrants, and red represents the natives. Although the physical conditions for immigrants, such as GDP per capita, government trust, are not as good as those of natives, the subjective well-being index of immigrants is twice as many as that of the natives.
+					</p>
+					<p>At least, they feel happier.</p>
+		</section>			
+							<div class="radarChart" style="height:800px; width:699px; margin:10px auto;"></div>
+					
+					<script src="d3.v3.js"></script>
+						<script src="radar.js"></script>
+						<script>
+
+							var marginradar = {top: 10, right: 100, bottom: 10, left:100},
+								widthradar = 710-marginradar.right-marginradar.left,
+								heightradar = 700;
+
+
+
+							var dataradar = [
+									  [//local
+										{axis:"Per Capita GDP",value:0.59},
+										{axis:"social support",value:0.52},
+										{axis:"Healthy life expectancy at birth",value:0.5},
+										{axis:"Freedom to choose",value:0.56},
+										{axis:"Subjective Well-Being",value:0.34},
+										{axis:"Government trust",value:0.59},
+									  ],
+								      [//migration
+										{axis:"Per Capita GDP",value:0.41},
+										{axis:"social support",value:0.48},
+										{axis:"Healthy life expectancy at birth",value:0.5},
+										{axis:"Freedom to choose",value:0.44},
+										{axis:"Subjective Well-Being",value:0.66},
+										{axis:"Government trust",value:0.41},
+									  ]
+									];
+							//chart
+							var colorradar = d3.scale.ordinal()
+								.range(["#CC333F","#00A0B0"]);
+
+							var radarChartOptions = {
+							  w: widthradar,
+							  h: heightradar,
+							  marginradar: marginradar,
+							  maxValue: 0.5,
+							  levels: 5,
+							  roundStrokes: true,
+							  color: colorradar
+							};
+							//Call function to draw the Radar chart
+							RadarChart(".radarChart", dataradar, radarChartOptions);
+						</script>
+ 	<section id=outro>
+						
+					
+				<p>In U.S., meat is less expensive, while vegetables and fruits are more expensive, compared with China.
+				</p>	
+				<p>In his first year in the United States, Mr. Hao almost gained twenty pounds. "A fat is always poor." He jokes. Without the Permanent Resident Card, he got a low-wage job at a restaurant in the Chinese community. He budgeted carefully, managing to support his wife and daughter who stayed in China. Exchanging USD to RMB, the money seems to be handsome. "Everything is fine as long as I am healthy." He saied.
+				</p>
+				<p>Days seem not as bright as he had imagined before leaving China, but Mr. Hao has no regrets for his decision. 
+				</p>
+<p>"Once there was a Chinese old lady who practice Tai Chi every morning at a park. It is common in China while many foreigners are so interested in Chinese Kungfu! Many foreigners practiced with her and everyone paid her some money. In this way, the old lady bought a big house finally.” He told a story. Mr. Hao plays Tai Chi very well and won several amateur championships. He paused for a while, "It is better than China in my opinion."
+</p>				
+
+
+							<img class="ui fluid image" src="images/IMMIGRANTS-facebook.jpg">
+					<h1>Gain happiness in first 5 years</h1>
+									<p>Qiu is quite satisfied with his life in US. Qiu’ salary was much higher than he could be paid in China, though not as high as the average level of the US, when he came to America at the first 5 years. Not accustomed to Western food, Qiu cook his meals when graduate schoold, which in turn improved cooking skills a lot. Qiu expresses firmly he has never thought of giving up even sometimes lonely, "Since you choose to go abroad, you should prepare for loneliness well."
+									</p>
+									<p>Qiu told us he fitted in the local life and got the Permanent Resident Card in a very short time. Because of his outstanding ability, he quickly became the general manager of the company. Then, it seemed that there was no chance of promotion. "As you all know, it is almost unlikely for a Chinese to get a higher position." He explained, "Because you are Asian and it is unavoidable they will judge you by race."
+									</p>
+
+												
+		
+		<div class="ui container vertical segment">
+			
+			
+			<div class="ui container">
+				<div class="ui buttons">
+  <button class="ui button active" onclick="update(data1forbar)" type="button"  id="newcomers">Newcomers</button>
+  <div class="or" data-text="Vs"></div>
+  <button class="ui positive button" onclick="update(data2forbar)" type="button"  id="long-timers">Long-timers</button>
+</div>
+			</div>
+		<!-- Create a div where the graph will take place -->
+		<div id="my_dataviz" style="height:500px"></div>
+
+		<p>Immigrants already achieve happiness gains during their first five years after migration. This finding suggests that the happiness of immigrants does not improve much with their length of stay in the destination country, which is in line with previous research findings.
+		</p>
+		</div>
+		<img class="ui fluid image" src="images/02.jpg">
+		<div class="ui container vertical segment">
+			<h1>Better life for family </h1>
+			<p>When Mr. Hao went abroad, his daughter, Rachel, was a middle school student. She didn't know what his father’s job in America. 
+				</p>
+			<p>"I thought it would be great to go to the United States at that time." She was proud of her father. Mr. Hao’s wife and daughter got a better life because he made more money in America. Rachel is holding a luxury handbag. She shows a lot of pictures of nice food and clothes and selfie with very delicate makeup on social apps.
+				</p>
+			<p>When Mr. Hao was in China, he made fried dishes for Rachel every morning. Now Dad's delicious breakfast was supplanted by the bread bought from cafe. The tradition of watching movies on weekends is replaced by going to the church.
+			</p>
+			<p>"If we go to America too, I'm afraid Rachel will be discriminated at school if not religious." So mother made this decision to go to the church.
+			</p>
+			<p>Hoping to smooth Rachel’s loneliness, Rachel’s mother add a new family, a Golden Retriever, which Rachel had wanted since childhood.
+			</p>
+			<p>However, pets never can be more than pets.</p>
+			<img class="ui fluid image" src="images/dog.jpg"> 
+			<div class="ui container vertical">	
+			<p> </p>			
+			<p>Qiu's marriage and childbirth in the United States saved much trouble Mr. Hao has met. Qiu often sends money his parents who lives in China. "It is similar with rural-to-urban migration in China." He explained. Nowadays, Qiu’s parents miss him from time to time, asking him to come back to China more often, though they support Qiu’s decision to go to America.
+				</p>
+				</div>
+				<div class="ui segment">
+				<img class="ui fluid image" src="images/Qiu_Climbing.jpg">
+				<p style="font-size: 15px; text-align: right; color:#646464">Qiu leading a decent life in the U.S.</p>
+			</div>
+<p></p>
+
+				<p>The results suggest that migration generally improves the perceived quality of life of household members back home but not necessarily their emotional well-being. Particularly interesting is that having a household member abroad generally does not reduce—and often even increases—negative affect experiences among the family back home. Hence, migration often requires trade-offs between different aspects of happiness for people staying behind.
+				</p>
+</section>
+<div class="ui container">
+<div id="scatterplot" style="width:700px; height:600px; margin:10px auto;"></div>
+</div>
+
+<script src="d3.v4.js"></script>
+<script src="scatter2.js"></script>
+<section id="outro">
+	
+
+	<p>Qiu's new-established company is developing gradually. He keeps in touch with friends in China and plans to return to China in two years. Qiu does not join the nationality of the USA. "I want to go back."
+	</p>
+	<p>Mr. Hao, on the other hand, is planning to take his wife and daughter to America. Now it is time for her daughter apply for a college, he wants Rachel to apply a college in US. He is preparing for a happy reunion year in the United States.</p>
+	<p></p>
+	
+</section>
+		<section id="jieweibakuaijiewei!!!!">
+		<div>
+			 <div class="loading_box" id="loading_box">
+    <div class="loading_text">You will be <strong>HAPPY</strong></div>
+        <canvas id="loading"></canvas>
+    </div>
+	<script src="particles.js"></script>
+<script>
+    var config = {
+        num       : 300,//数量
+        size      : {
+            minSize: 1,//最小尺寸
+            maxSize: 20//最大尺寸
+        },
+        zone      : {
+            x: [0, 1],
+            y: [1, 1]
+        },
+        speed     : {
+            x : [0, 0],//x轴速度区间
+            y : [-4, -1],//y轴速度区间
+            ax: [0, 0],//x轴加速度区间
+            ay: [-0.01, -0.04]//y轴加速度区间
+        },
+        time      : {
+            fadeIn : 100,//生成时间
+            fadeOut: 4000//消逝时间
+        },
+        atmosphere: [//色彩氛围，在指定颜色区间中随机生成颜色效果真是棒极了！
+            {
+                start:{
+                    r:0,
+                    g:160,
+                    b:191,
+                    a:0.4
+                },
+                end:{
+                    r:64,
+                    g:224,
+                    b:255,
+                    a:0.9
+                }
+            },
+            {
+                start:{
+                    r:0,
+                    g:96,
+                    b:191,
+                    a:0.4
+                },
+                end:{
+                    r:64,
+                    g:160,
+                    b:255,
+                    a:0.9
+                }
+            }
+        ],
+        background:"white",
+        follow    : false,
+        active    : 1000,//鼠标随动程度
+        blur      : true//模糊效果……存在性能问题但不舍得抛弃_(:3」∠)_
+    };
+
+
+    var ml = mapleParticles(document.getElementById("loading"), config);
+</script>
+	</div>
+		</section>
+
+
+
+	<script src="d3.v4.min.js.下载"></script>
+	<script src="intersection-observer.js.下载"></script>
+	<script src="scrollama.min.js.下载"></script>
+	<script>
+		// using d3 for convenience
+		var container = d3.select('#scroll');
+		var graphic = container.select('.scroll__graphic');
+		var chart = graphic.select('.chart');
+		var text = container.select('.scroll__text');
+		var step = text.selectAll('.step');
+
+		// initialize the scrollama
+		var scroller = scrollama();
+
+		// generic window resize listener event
+		function handleResize() {
+			// 1. update height of step elements
+			var stepHeight = Math.floor(window.innerHeight * 0.75);
+			step.style('height', stepHeight + 'px');
+
+			// 2. update width/height of graphic element
+			var bodyWidth = d3.select('body').node().offsetWidth;
+
+			graphic
+				.style('width', bodyWidth + 'px')
+				.style('height', window.innerHeight + 'px');
+
+			var chartMargin = 32;
+			var textWidth = text.node().offsetWidth;
+			var chartWidth = graphic.node().offsetWidth - textWidth - chartMargin;
+
+			chart
+				.style('width', chartWidth + 'px')
+				.style('height', Math.floor(window.innerHeight / 2) + 'px');
+
+
+			// 3. tell scrollama to update new element dimensions
+			scroller.resize();
+		}
+
+		// scrollama event handlers
+		function handleStepEnter(response) {
+			// response = { element, direction, index }
+
+			// add color to current step only
+			step.classed('is-active', function (d, i) {
+				return i === response.index;
+			})
+
+			// update graphic based on step
+			if(response.index===1){return chart.selectAll('circle').transition().duration(2000).attr("opacity",1);}
+		else{return chart.selectAll('circle').attr("opacity",0);}
+		};
+
+		function handleContainerEnter(response) {
+			// response = { direction }
+
+			// sticky the graphic (old school)
+			graphic.classed('is-fixed', true);
+			graphic.classed('is-bottom', false);
+		}
+
+		function handleContainerExit(response) {
+			// response = { direction }
+
+			// un-sticky the graphic, and pin to top/bottom of container
+			graphic.classed('is-fixed', false);
+			graphic.classed('is-bottom', response.direction === 'down');
+		}
+
+		function init() {
+			// 1. force a resize on load to ensure proper dimensions are sent to scrollama
+			handleResize();
+
+			// 2. setup the scroller passing options
+			// this will also initialize trigger observations
+			// 3. bind scrollama event handlers (this can be chained like below)
+			scroller.setup({
+				container: '#scroll',
+				graphic: '.scroll__graphic',
+				text: '.scroll__text',
+				step: '.scroll__text .step',
+				debug: false,
+			})
+				.onStepEnter(handleStepEnter)
+				.onContainerEnter(handleContainerEnter)
+				.onContainerExit(handleContainerExit);
+
+			// setup resize event
+			window.addEventListener('resize', handleResize);
+		}
+
+		// kick things off
+		init();
+	</script>
+
+
+
+
+	<script type="text/javascript" src="d3.v4.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+		<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+	<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <!-- jquery线上lib -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <script type="text/javascript">
+
+		var width = 1400;
+		var height = 600;
+
+		var svg = d3.select(".chart")
+					.append("svg")
+					.attr("width", width)
+					.attr("height", height);
+
+		var Tobacco_g = svg.append("g");
+
+		var projection = d3.geoMercator()
+
+		var geoGenerator = d3.geoPath()
+			.projection(projection);
+
+		var colorScale2 = d3.scaleLinear().range(["#CAFFFF", "#005757"]);
+
+		var tooltip = d3.select("body")
+                        .append("div")
+                        .attr("class", "tooltip");
+
+		queue()
+		    .defer(d3.json, "countries.geo.json")
+		    .defer(d3.csv, "migrantstock.csv", typeAndSet)
+		    .await(loaded);
+
+		var CountryByName = d3.map();
+
+		function typeAndSet(d){
+			d.value = +d.value;
+      d.Region = d.Region;
+			CountryByName.set(d.Country, d)
+			return d;
+
+		}
+
+		console.log(CountryByName);
+
+		function getColor(d){
+			var Country = CountryByName.get(d.properties.name);
+			console.log(Country)
+
+			if(Country){
+				return colorScale2(Country.value);
+			}else if (d.properties.name!="Antarctica"){
+				return "#ccc";
+			}
+			else{
+				return "#FFFFFF";
+			}
+		}
+
+		function loaded(error, Tobacco, num){
+			if(error) throw error;
+
+			console.log(num);
+
+			colorScale2.domain(d3.extent(num, function(g){
+				return g.value;
+			}))
+
+			projection.fitSize([1400, 750], Tobacco);
+
+			var Tobacco = Tobacco_g.selectAll("path")
+				.data(Tobacco.features);
+        console.log(Tobacco)
+
+			Tobacco.enter()
+				.append("path")
+				.attr("d", geoGenerator)
+				.attr("fill", function(d){ return getColor(d); })
+				.on("mouseover", mouseoverFunc)
+                .on("mousemove", mousemoveFunc)
+                .on("mouseout", mouseoutFunc);
+
+			var linear = colorScale2;
+
+			svg.append("g")
+				.attr("class", "legendLinear")
+				.attr("transform", "translate(160,50)");
+
+			var legendLinear = d3.legendColor()
+				.shapeWidth(30)
+				.orient("vertical")
+				.labelFormat(d3.format(".4s"))
+				.scale(linear);
+
+			svg.select(".legendLinear")
+				.call(legendLinear);
+
+			svg.append("rect")
+			   .attr("x",160)
+			   .attr("y",135)
+			   .attr("height",15)
+			   .attr("width",30)
+			   .attr("fill","#ccc")
+
+			svg.append("text")
+			   .attr("x",200)
+			   .attr("y",149)
+			   .attr("height",15)
+			   .attr("width",30)
+			   .attr("font-size",9)
+			   .text("None")
+
+		}
+
+
+		function mouseoverFunc(d) {
+
+			if (d.properties.name!="Antarctica"){
+
+			d3.select(this)
+			.transition()
+            .duration(300)
+            .style("stroke-width", 1)
+			.style("stroke", "grey")
+
+            if (CountryByName.get(d.properties.name)){
+
+            tooltip
+                .style("display", null)
+                .html("<p> Country: " + d.properties.name +"<br>Age-standardized Prevalence: " + CountryByName.get(d.properties.name)["value"] + "<br>Global Average: 21.9"+"</p>");
+
+            } else {
+
+            tooltip
+                .style("display", null)
+                .html("<p> No Data for " + d.properties.name + "</p>");
+            }
+        }
+
+        }
+
+        function mousemoveFunc(d) {
+
+            tooltip
+                .style("top", (d3.event.pageY - 10) + "px" )
+                .style("left", (d3.event.pageX + 10) + "px");
+        }
+
+        function mouseoutFunc(d) {
+            tooltip.style("display", "none");
+
+            d3.select(this)
+            .transition()
+            .duration(300)
+            .style("stroke", "none")
+            .style("stroke-width", 2);
+
+        }
+
+		var svg = d3.select(".chart").select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+// Map and projection
+
+
+
+d3.queue()
+  .defer(d3.json, "countries.geo.json")  // World shape
+  .defer(d3.csv, "happy.csv") // Position of circles
+  .await(ready);
+
+
+function ready(error, dataGeo, data) {
+
+  // Add a scale for bubble size
+  var valueExtent = d3.extent(data, function(d) { return +d.n; })
+  var size = d3.scaleSqrt()
+    .domain(valueExtent)  // What's in the data
+    .range([2, 12])  // Size in pixel
+
+
+  // Add circles:
+  var myCircles=svg
+    .selectAll("myCircles")
+    .data(data.sort(function(a,b) { return +b.n - +a.n }).filter(function(d,i){ return i<1000 }))
+    .enter()
+    .append("circle")
+
+
+      .attr("cx", function(d){ return projection([+d.homelon, +d.homelat])[0] })
+      .attr("cy", function(d){ return projection([+d.homelon, +d.homelat])[1] })
+	 // .transition().duration(2000)
+      .attr("r", function(d){ return size(+d.n) })
+    .style("fill", function(d){ if(d.n>6916){return "#FF3500"}else{return "#FFB800"} })
+	  .attr("stroke",function(d){ if(d.n>6916){return "#A62300"}else{return "none"} })
+	 .attr("stroke-width", 1.5)
+      .attr("fill-opacity", .4)
+  .attr("class","bubble")
+
+myCircles.attr("opacity",0)
+
+}
+
+    </script>
+
+
+<script src="bar_new_vs_old.js"> </script>
+
+		</body>
+</html>
