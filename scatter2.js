@@ -60,6 +60,7 @@ svgforscatter.append('g')
             })
 .style("opacity","0.7");
 // new X axis
+
 xforscatter.domain([0, 0.4])
 svgforscatter.select(".Xaxisforscatter")
 .transition()
