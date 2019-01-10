@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 
 <html>
+<script>
 
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','analytics.js','ga');
+
+  ga('create', 'UA-61261286-1', 'auto');
+  ga('send', 'pageview');
+
+         </script>
 <head>
+	
 
 	<title>Happiness Index of Immigrants</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<link href='bootstrap.min.css' rel='stylesheet' />
+     <script src="bootstrap.js"></script>
+	 <script src="jquery.min.js"></script> 
 	
 
 
@@ -233,7 +244,7 @@
 		    .source{
 		    	font-size:15px;
 		    }
-				svg {
+				#flows {
 				position:absolute;
 				}
 				canvas {
@@ -246,7 +257,7 @@
 							height: 700px;
 						}
 
-			#map { position:absolute; width:1200px; height: 700px;}
+			#mapflows { position:absolute; width:1200px; height: 700px;}
 
 			.mapboxgl-interactive {height:700px;}
 
@@ -332,13 +343,31 @@ left: 50%; bottom: 30%; transform: translateX(-50%);
 	<div class="ui grid">
 	<div class="one wide column"> </div>
 	<div class="fourteen wide column">
-		<div id="iembed" style="position: relative;width:100%;height:0; padding-bottom:40%;overflow-y:hidden;">
+	<!--	<div id="iembed" style="position: relative;width:100%;height:0; padding-bottom:40%;overflow-y:hidden;">
 		<iframe id="iembedframe" src="http://metrocosm.com/world-migration.html" width=1000 height=700 scrolling="no" style="position:absolute;right:5%;top:0;transform-origin:top right;overflow-y:hidden;"></iframe>
+		</div>-->
+		<div id='mapflows'></div>
+          <svg id="flows"></svg>
+		<div id="container">
+			
 		</div>
+		
+		<link href='bootstrap.min.css' rel='stylesheet' />
+       <!-- <link rel="canonical" href="http://metrocosm.com/global-immigration-map/" />-->
+        <link href='mapbox-gl.css' rel='stylesheet' />
+         
+         <script src='mapbox-gl.js'></script>
+          <script src="d.js"></script>
+           
+               <script src="topojson.v1.min.js"></script>
+                  <script src="d3.geo.projection.v0.min.js"></script>
+		
+		<script src="Three.js"></script>
+		<script src="flows.js"></script>
 	</div>
+		
 	<div class="one wide column"> </div>
 	</div>
-	<script src="http://metrocosm.com/metrocosm-migration-embed.js"></script>
 	<section id="intro">
 		<p style="padding-top: 20px">The golden dots move busily, mimicing immigrants all around the world come and go. In 2015, 700 million people expressed their intention to emigrate. The actual number of people living outside the country of birth is about 244 million, 100 million more than what it was in 1990. In 2050, it is expected the figure to keep growing to 400 million.
 				</p>
